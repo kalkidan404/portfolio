@@ -1,0 +1,143 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+/* The Background Shape Logic */
+.hero {
+  position: relative;
+  background-color: #008ba3; 
+  padding-bottom: 60px; 
+  
+  /* This creates the slant at the bottom of the blue section */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.container {
+  padding: 20px;
+  max-width: 100%; 
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; 
+  text-align: center;
+}
+
+.main {
+  width: 180px; 
+  height: 180px;
+  object-fit: cover; 
+  border-radius: 12px;
+}
+.project-item img {
+  width: 100%; /* Spans the width of the phone */
+  height: auto; 
+  aspect-ratio: 16 / 9; /* Keeps all project shots the same shape */
+  object-fit: cover;
+ border-radius: 8px;
+}
+.project-item {
+  width: 100%; /* Spans the width of the phone */
+  height: auto; 
+  object-fit: cover;
+ border-radius: 8px;}
+   /* Adds a teal border to project images */
+.about {
+  margin-top: 20px;
+  font-size: 1.2em; /* Slightly larger text for readability on mobile */
+  max-width: 90%; /* Keeps it from stretching too wide on small screens */
+  background-color: whitesmoke; /* Semi-transparent background */
+  color: black;
+}
+.about-project{
+    font-size: 1.2em; 
+    max-width: 100%; 
+    background-color: whitesmoke; 
+    color: black;
+}
+.contact{
+    background-color:#008ba3;
+    font-size: 1.2em;
+    max-width: 100%; 
+
+}
+.contact img{
+    width: 100%; 
+    height: auto; 
+    aspect-ratio: 16 / 9; 
+    object-fit: cover;
+ border-radius: 8px;
+}
+/* Tablet and Laptop Styles */
+@media (min-width: 768px) {
+  .hero {
+    /* Adjust the height so it only covers the top half of the laptop screen */
+    height: 400px; 
+    
+    /* You might want a different slant for desktop */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  }
+  /* 1. Turn the Project List into a Grid */
+  .project-list {
+    display: grid;
+    /* This divides the screen into 3 equal parts exactly */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Space between projects */
+    width: 100%; /* Ensure the list itself doesn't exceed the screen */
+  }
+
+  .project-item {
+    width: 100%; /* Each item stays inside its 1/3rd of the grid */
+  }
+
+  .project-item img {
+    /* THIS PREVENTS THE OVERFLOW */
+    width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover;
+  }
+
+  /* 2. Fix the Hero Section (Image next to Text) */
+  .hero-content {
+    flex-direction: row; /* Switch from vertical to horizontal */
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .main {
+    width: 350px; /* Make the profile image larger for laptop */
+    height: auto;
+  }
+
+  .about {
+    flex: 1; /* Tells the text to take up the remaining space */
+    margin-left: 40px;
+  }
+  .contact {
+  display: flex; /* THIS IS THE MISSING KEY */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Centers items vertically in the row */
+  text-align: left;
+  gap: 40px; /* Adds space between text and image */
+}
+
+.contact img {
+  width: 45%; /* Limits image size so text has room */
+  height: auto;
+}
+}
