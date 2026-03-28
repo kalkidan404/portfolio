@@ -49,16 +49,16 @@ body {
  border-radius: 8px;
 }
 .project-item {
-  width: 100%; /* Spans the width of the phone */
+  width: 100%; 
   height: auto; 
   object-fit: cover;
  border-radius: 8px;}
-   /* Adds a teal border to project images */
+  
 .about {
   margin-top: 20px;
-  font-size: 1.2em; /* Slightly larger text for readability on mobile */
-  max-width: 90%; /* Keeps it from stretching too wide on small screens */
-  background-color: whitesmoke; /* Semi-transparent background */
+  font-size: 1.2em; 
+  max-width: 90%; 
+  background-color: whitesmoke; 
   color: black;
 }
 .about-project{
@@ -83,61 +83,101 @@ body {
 /* Tablet and Laptop Styles */
 @media (min-width: 768px) {
   .hero {
-    /* Adjust the height so it only covers the top half of the laptop screen */
+    position: relative;
     height: 400px; 
+    z-index: 1;
     
-    /* You might want a different slant for desktop */
-    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
   }
-  /* 1. Turn the Project List into a Grid */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #008ba3; 
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); 
+    z-index: -1; }
+
+  
   .project-list {
     display: grid;
-    /* This divides the screen into 3 equal parts exactly */
+    
     grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; /* Space between projects */
-    width: 100%; /* Ensure the list itself doesn't exceed the screen */
+    gap: 20px; 
+    width: 100%; 
   }
 
   .project-item {
-    width: 100%; /* Each item stays inside its 1/3rd of the grid */
+    width: 100%; 
+    border: #008ba3 solid 2px; 
   }
 
   .project-item img {
-    /* THIS PREVENTS THE OVERFLOW */
+
     width: 100%; 
     height: auto; 
     display: block;
     object-fit: cover;
   }
 
-  /* 2. Fix the Hero Section (Image next to Text) */
+  
   .hero-content {
-    flex-direction: row; /* Switch from vertical to horizontal */
-    justify-content: space-between;
-    align-items: flex-start;
-    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+
+overflow: visible;
   }
 
+  
   .main {
-    width: 350px; /* Make the profile image larger for laptop */
+    width: 350px; 
     height: auto;
   }
-
-  .about {
-    flex: 1; /* Tells the text to take up the remaining space */
-    margin-left: 40px;
-  }
+.user-name {
+    position: absolute;
+    bottom: 8%; 
+    z-index: 99; 
+    color: white;
+    font-family: cinzel, serif;
+    font-size: 2rem;
+    font-weight: 200;
+     line-height: 0.5em;
+    pointer-events: none; }
+ .about{
+   max-width: 430px;
+    position: relative; 
+    z-index: 80;
+    bottom: 43px;
+    background-color: whitesmoke; 
+    color: black;
+    padding: 20px;
+    border-radius: 0 8px 8px 0; 
+ }
   .contact {
-  display: flex; /* THIS IS THE MISSING KEY */
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; /* Centers items vertically in the row */
+  align-items: center; 
   text-align: left;
-  gap: 40px; /* Adds space between text and image */
+  gap: 40px; 
 }
 
 .contact img {
-  width: 45%; /* Limits image size so text has room */
+  width: 45%; 
   height: auto;
 }
+ a {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #008ba3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+}
+li a{
+    color:#050c0e ;
 }
